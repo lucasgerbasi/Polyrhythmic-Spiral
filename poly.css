@@ -1,0 +1,131 @@
+html, body {
+    height: 100vh;
+    background-color: black;
+    overflow: hidden;
+    font-family: "Noto Sans", sans-serif;
+  }
+  
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  
+  canvas {
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+    z-index: 9;
+  }
+  
+  #logo {
+    color: white;
+    display: flex;
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 4;
+    opacity: 0.7;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+  
+  #logo > img {
+    height: 6.2vmin;
+  }
+  
+  #background-image,
+  #background-filter {
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+  }
+    
+  #background-image {
+    z-index: 1;
+    background-image: url("https://images.unsplash.com/photo-1490735891913-40897cdaafd1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80");
+    background-size: cover;
+    background-position: center;
+    opacity: 90%;
+    filter: blur(10px) grayscale(10%);
+  }
+  
+  #background-filter {
+    z-index: 2;
+    background: radial-gradient(rgba(0, 0, 0, 0.534) 2%, transparent);
+  }
+  
+  #control-bar-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    z-index: 10;
+    padding: 0.5rem;
+  }
+  
+  .toggle {
+    background-color: rgb(255 255 255 / 10%);
+    backdrop-filter: blur(5px);
+    padding: 0.5rem;
+    border-radius: 0.25rem;
+    height: 2rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    opacity: 0;
+  }
+  
+  .toggle:is(:hover, :focus-visible) {
+    background-color: rgb(255 255 255 / 15%);
+  }
+  
+  .toggle > i {
+    color: white;
+    display: none;
+    height: 1rem;
+    width: 1rem;
+    font-size: 0.6rem;
+    line-height: 1rem;
+    text-align: center;
+  }
+  
+  .toggle[data-toggled="true"] > i.on {
+    display: block;
+  }
+  
+  .toggle[data-toggled="false"] > i.off {
+    display: block;
+  }
+  
+  #sound-message {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    padding: 1rem;
+    background-color: rgba(238, 203, 116, 0.719); /* background color */
+    border-radius: 0.4rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+    transition: opacity 500ms ease-in-out;
+    pointer-events: none;
+  }
+  
+  body:has(#sound-toggle[data-toggled="true"]) #sound-message {
+    opacity: 0;
+  }
+  
+  #sound-message > p {
+    color: #4d4949; /* text color */
+    font-size: 1rem;
+    text-align: center;
+    margin: 0;
+    white-space: nowrap;
+  }
+  
