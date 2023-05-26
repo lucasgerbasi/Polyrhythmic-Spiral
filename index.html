@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poly</title>
+    <link rel="stylesheet" href="poly.css">
+    
+</head>
+<body>
+    <div id="control-bar-container">
+        <div id="control-bar">
+          <button id="sound-toggle" class="toggle" type="button" data-toggled="false" onClick="handleSoundToggle()" title="Toggle Pulse">
+            <i class="fa-solid fa-music-slash off"></i>
+            <i class="fa-solid fa-music on"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div id="background-image"></div>
+      
+      <div id="background-filter"></div>
+      
+      <div id="logo">
+        <img src="logosol.png" alt="" />
+      </div>
+      
+      <div id="sound-message">
+        <p>Click anywhere to toggle sound</p>
+      </div>
+
+      <div id="result_show"></div>
+      
+      <canvas id="canvas"></canvas>
+      <script src="poly.js"></script>
+</body>
+</html>
