@@ -59,8 +59,6 @@ const handleSoundToggle = (enabled = !settings.soundEnabled) => {
 document.onvisibilitychange = () => handleSoundToggle(false);
 
 // When you click the canvas, call handleSoundToggle()
-canvas.onclick = () => handleSoundToggle();
-
 //
 const getFileName = index => {
   if (settings.instrument === "default") return `key-${index}`;
@@ -227,6 +225,8 @@ const draw = () => {
   requestAnimationFrame(draw);
 }
 
-init();
-
-requestAnimationFrame(draw);
+canvas.onclick = () => {
+  handleSoundToggle();
+  init();
+  requestAnimationFrame(draw);
+}
